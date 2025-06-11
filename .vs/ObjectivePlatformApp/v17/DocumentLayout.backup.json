@@ -1,0 +1,40 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\BloTY-\\Downloads\\ObjectivePlatform-Avalonia-master\\ObjectivePlatform-Avalonia-master\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{2D2142F3-4C42-494B-95ED-711D094A2D45}|ObjectivePlatformApp\\ObjectivePlatformApp.csproj|c:\\users\\bloty-\\downloads\\objectiveplatform-avalonia-master\\objectiveplatform-avalonia-master\\objectiveplatformapp\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{2D2142F3-4C42-494B-95ED-711D094A2D45}|ObjectivePlatformApp\\ObjectivePlatformApp.csproj|solutionrelative:objectiveplatformapp\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainWindow.axaml",
+              "DocumentMoniker": "C:\\Users\\BloTY-\\Downloads\\ObjectivePlatform-Avalonia-master\\ObjectivePlatform-Avalonia-master\\ObjectivePlatformApp\\MainWindow.axaml",
+              "RelativeDocumentMoniker": "ObjectivePlatformApp\\MainWindow.axaml",
+              "ToolTip": "C:\\Users\\BloTY-\\Downloads\\ObjectivePlatform-Avalonia-master\\ObjectivePlatform-Avalonia-master\\ObjectivePlatformApp\\MainWindow.axaml",
+              "RelativeToolTip": "ObjectivePlatformApp\\MainWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-06-10T04:45:45.618Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

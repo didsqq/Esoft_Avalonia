@@ -1,0 +1,132 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ObjectivePlatformApp.ClientsWindow"
+             Foreground="Black"
+             Width="900"
+             Height="600">
+
+	<UserControl.Resources>
+		<!-- Define colors -->
+		<Color x:Key="BlueColor">#0091EA</Color>
+		<SolidColorBrush x:Key="BlueBrush" Color="{StaticResource BlueColor}" />
+		<Color x:Key="RedColor">#FF1744</Color>
+		<SolidColorBrush x:Key="RedBrush" Color="{StaticResource RedColor}" />
+	</UserControl.Resources>
+
+	<UserControl.Styles>
+		<!-- Common button style settings -->
+		<Style Selector="Button">
+			<Setter Property="Padding" Value="12 8"/>
+			<Setter Property="CornerRadius" Value="4"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="FontSize" Value="14"/>
+		</Style>
+
+		<!-- Style for Add button -->
+		<Style Selector="Button.addButtonStyle">
+			<Setter Property="Background" Value="{StaticResource BlueBrush}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+		</Style>
+		<Style Selector="Button.addButtonStyle:pointerover">
+			<Setter Property="Background" Value="#007ACC"/> <!-- Slightly darker blue -->
+		</Style>
+		<Style Selector="Button.addButtonStyle:pressed">
+			<Setter Property="Background" Value="#005C99"/> <!-- Even darker blue -->
+		</Style>
+
+		<!-- Style for Edit button -->
+		<Style Selector="Button.editButtonStyle">
+			<Setter Property="Background" Value="Transparent"/>
+			<Setter Property="Foreground" Value="{StaticResource BlueBrush}"/>
+			<Setter Property="BorderBrush" Value="{StaticResource BlueBrush}"/>
+			<Setter Property="BorderThickness" Value="1"/>
+		</Style>
+		<Style Selector="Button.editButtonStyle:pointerover">
+			<Setter Property="Background" Value="#E6F2FA"/> <!-- Light blue hover -->
+		</Style>
+		<Style Selector="Button.editButtonStyle:pressed">
+			<Setter Property="Background" Value="#CCE0F5"/> <!-- Darker light blue pressed -->
+		</Style>
+
+		<!-- Style for Delete button -->
+		<Style Selector="Button.deleteButtonStyle">
+			<Setter Property="Background" Value="{StaticResource RedBrush}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+		</Style>
+		<Style Selector="Button.deleteButtonStyle:pointerover">
+			<Setter Property="Background" Value="#D4143D"/> <!-- Slightly darker red -->
+		</Style>
+		<Style Selector="Button.deleteButtonStyle:pressed">
+			<Setter Property="Background" Value="#AD0F32"/> <!-- Even darker red -->
+		</Style>
+	</UserControl.Styles>
+
+	<Grid Margin="10" Background="#ECECF1">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<!-- Заголовок + Назад -->
+			<RowDefinition Height="Auto"/>
+			<!-- Поиск -->
+			<RowDefinition Height="Auto"/>
+			<!-- Кнопки -->
+			<RowDefinition Height="*"/>
+			<!-- Список -->
+		</Grid.RowDefinitions>
+
+		<!-- Заголовок + Назад -->
+		<Grid Grid.Row="0" Margin="20,10">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+
+			<TextBlock Text="Клиенты"
+					   Grid.Column="0"
+					   VerticalAlignment="Center"
+					   FontSize="20"
+					   FontWeight="SemiBold"/>
+			<Button x:Name="BackButton"
+					Grid.Column="1"
+					Content="Назад"
+					Classes="editButtonStyle"
+					Margin="10,0,0,0"
+					Width="80"
+					HorizontalAlignment="Right"/>
+		</Grid>
+
+		<!-- Поиск -->
+		<TextBox x:Name="SearchTextBox"
+				 Grid.Row="1"
+				 Margin="20,0,20,10"
+				 Watermark="Поиск по ФИО..."
+				 TextChanged="SearchTextBox_TextChanged"/>
+
+		<!-- Кнопки -->
+		<StackPanel Grid.Row="2"
+					Orientation="Horizontal"
+					HorizontalAlignment="Left"
+					Margin="20,0,20,10"
+					Spacing="10">
+			<Button x:Name="CreateClientButton"
+					Content="Добавить"
+					Classes="addButtonStyle"/>
+			<Button x:Name="EditClientButton"
+					Content="Редактировать"
+					Classes="editButtonStyle"/>
+			<Button x:Name="DeleteClientButton"
+					Content="Удалить"
+					Classes="deleteButtonStyle"/>
+		</StackPanel>
+
+		<!-- Список клиентов -->
+		<ScrollViewer Grid.Row="3" VerticalScrollBarVisibility="Auto" Margin="20,0">
+			<StackPanel x:Name="ClientsPanel" Spacing="5"/>
+		</ScrollViewer>
+	</Grid>
+
+</UserControl>

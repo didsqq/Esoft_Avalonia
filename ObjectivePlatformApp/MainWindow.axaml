@@ -1,0 +1,92 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:ObjectivePlatformApp"
+        x:Class="ObjectivePlatformApp.MainWindow"
+        Title=""
+        Width="900" Height="700"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI">
+	<Window.Resources>
+		<Color x:Key="gray_0_Color">#ECECF1</Color>
+		<SolidColorBrush x:Key="gray_0" Color="{StaticResource gray_0_Color}" />
+
+		<Color x:Key="gray_4_Color">#7B7B7B</Color>
+		<SolidColorBrush x:Key="gray_4" Color="{StaticResource gray_4_Color}" />
+
+		<Color x:Key="gray_6_Color">#38474F</Color>
+		<SolidColorBrush x:Key="gray_6" Color="{StaticResource gray_6_Color}" />
+
+		<Color x:Key="primary_Color">#0042FF</Color>
+		<SolidColorBrush x:Key="primary" Color="{StaticResource primary_Color}" />
+	</Window.Resources>
+
+	<Window.Styles>
+		<Style Selector="Window">
+			<Setter Property="Background" Value="{StaticResource gray_0}"/>
+		</Style>
+
+		<Style Selector="Button.primaryButtonBig">
+			<Setter Property="Background" Value="#0091EA"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="Padding" Value="12 8"/>
+			<Setter Property="BorderThickness" Value="0"/>
+			<Setter Property="CornerRadius" Value="4"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="FontSize" Value="18"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="Height" Value="40"/>
+		</Style>
+
+		<Style Selector="Button.primaryButtonBig:pointerover">
+			<Setter Property="Background" Value="#0033CC"/>
+		</Style>
+
+		<Style Selector="Button.primaryButtonBig:pressed">
+			<Setter Property="Background" Value="#002699"/>
+		</Style>
+
+	</Window.Styles>
+
+	<Grid Margin="40">
+		<Border Background="White" CornerRadius="12" Padding="30"
+                VerticalAlignment="Center" HorizontalAlignment="Center">
+			<StackPanel Spacing="20">
+				<!-- Верхняя часть: логотип + заголовок -->
+				<Grid ColumnDefinitions="Auto, *"
+					  VerticalAlignment="Center"
+					  Margin="0,0,0,10">
+					<!-- Логотип -->
+					<Image Source="avares://ObjectivePlatformApp/Res/logo.png"
+						   Width="80" Height="80"
+						   VerticalAlignment="Center"
+						   Margin="0,0,20,0"/>
+
+					<!-- Заголовок -->
+					<StackPanel Grid.Column="1"
+								VerticalAlignment="Center">
+						<TextBlock Text="Управление базой данных"
+								   Foreground="{StaticResource gray_6}"
+								   FontSize="24" FontWeight="Medium"/>
+					</StackPanel>
+				</Grid>
+
+
+				<!-- Кнопки -->
+				<StackPanel Spacing="15">
+					<Button Classes="primaryButtonBig"
+                            Click="ClientsButton_Click">
+						Клиенты
+					</Button>
+					<Button Classes="primaryButtonBig"
+                            Click="RealtorsButton_Click">
+						Риэлторы
+					</Button>
+					<Button Classes="primaryButtonBig"
+                            Click="PropertiesButton_Click">
+						Объекты недвижимости
+					</Button>
+				</StackPanel>
+			</StackPanel>
+		</Border>
+	</Grid>
+</Window>

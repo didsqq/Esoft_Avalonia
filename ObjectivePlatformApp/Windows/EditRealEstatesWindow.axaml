@@ -1,0 +1,176 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ObjectivePlatformApp.EditRealEstatesWindow"
+             Width="800"
+             Height="700"
+             Foreground="#333333">
+
+	<UserControl.Resources>
+		<Color x:Key="BlueColor">#0091EA</Color>
+		<SolidColorBrush x:Key="BlueBrush" Color="{StaticResource BlueColor}" />
+		<Color x:Key="RedColor">#FF1744</Color>
+		<SolidColorBrush x:Key="RedBrush" Color="{StaticResource RedColor}" />
+		<SolidColorBrush x:Key="BorderGrayBrush" Color="#E0E0E0"/>
+		<SolidColorBrush x:Key="ErrorBrush" Color="#D32F2F"/>
+	</UserControl.Resources>
+
+	<UserControl.Styles>
+		<!-- Common styles -->
+		<Style Selector="TextBlock">
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Margin" Value="0 0 0 5"/>
+		</Style>
+
+		<Style Selector="TextBlock.header">
+			<Setter Property="FontSize" Value="18"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="Margin" Value="0 0 0 15"/>
+		</Style>
+
+		<Style Selector="TextBox, ComboBox">
+			<Setter Property="Padding" Value="12"/>
+			<Setter Property="CornerRadius" Value="6"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+			<Setter Property="Background" Value="White"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="Width" Value="350"/>
+		</Style>
+
+		<Style Selector="TextBox:focus, ComboBox:focus">
+			<Setter Property="BorderBrush" Value="{StaticResource BlueBrush}"/>
+		</Style>
+
+		<Style Selector="TextBlock.error">
+			<Setter Property="Foreground" Value="{StaticResource ErrorBrush}"/>
+			<Setter Property="FontSize" Value="12"/>
+			<Setter Property="Margin" Value="5 5 0 0"/>
+		</Style>
+
+		<!-- Button styles -->
+		<Style Selector="Button">
+			<Setter Property="Padding" Value="12 8"/>
+			<Setter Property="CornerRadius" Value="6"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="MinWidth" Value="120"/>
+		</Style>
+
+		<Style Selector="Button.addButtonStyle">
+			<Setter Property="Background" Value="{StaticResource BlueBrush}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+		</Style>
+		<Style Selector="Button.addButtonStyle:pointerover">
+			<Setter Property="Background" Value="#007ACC"/>
+		</Style>
+		<Style Selector="Button.addButtonStyle:pressed">
+			<Setter Property="Background" Value="#005C99"/>
+		</Style>
+
+		<Style Selector="Button.deleteButtonStyle">
+			<Setter Property="Background" Value="{StaticResource RedBrush}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+		</Style>
+		<Style Selector="Button.deleteButtonStyle:pointerover">
+			<Setter Property="Background" Value="#D4143D"/>
+		</Style>
+		<Style Selector="Button.deleteButtonStyle:pressed">
+			<Setter Property="Background" Value="#AD0F32"/>
+		</Style>
+	</UserControl.Styles>
+
+	<Border Background="#F8F9FA" CornerRadius="8" Padding="30">
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<StackPanel Spacing="20" Width="700">
+				<!-- Header -->
+				<TextBlock Text="Редактирование объекта недвижимости"
+                           Classes="header"
+                           HorizontalAlignment="Center"/>
+
+				<!-- Type selection -->
+				<StackPanel Spacing="10">
+					<TextBlock Text="Тип недвижимости:"/>
+					<ComboBox x:Name="TablesComboBox">
+						<ComboBoxItem Content="Дом"/>
+						<ComboBoxItem Content="Земля"/>
+						<ComboBoxItem Content="Квартира"/>
+					</ComboBox>
+					<TextBlock x:Name="TypeError" Classes="error"/>
+				</StackPanel>
+
+				<!-- Form fields -->
+				<Grid ColumnDefinitions="*,20,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto"
+                      VerticalAlignment="Top" Margin="0 10">
+					<!-- Left column -->
+					<StackPanel Grid.Column="0" Grid.Row="0" Spacing="5">
+						<TextBlock Text="Город:"/>
+						<TextBox x:Name="CityTextBox"/>
+						<TextBlock x:Name="CityError" Classes="error"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="0" Grid.Row="1" Spacing="5">
+						<TextBlock Text="Улица:"/>
+						<TextBox x:Name="StreetTextBox"/>
+						<TextBlock x:Name="StreetError" Classes="error"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="0" Grid.Row="2" Spacing="5">
+						<TextBlock Text="Дом:"/>
+						<TextBox x:Name="HouseTextBox"/>
+						<TextBlock x:Name="HouseError" Classes="error"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="0" Grid.Row="3" Spacing="5">
+						<TextBlock Text="Квартира:"/>
+						<TextBox x:Name="FlatTextBox"/>
+						<TextBlock x:Name="FlatError" Classes="error"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="0" Grid.Row="4" Spacing="5">
+						<TextBlock Text="Этаж:"/>
+						<TextBox x:Name="FloorTextBox"/>
+						<TextBlock x:Name="FloorError" Classes="error"/>
+					</StackPanel>
+
+					<!-- Right column -->
+					<StackPanel Grid.Column="2" Grid.Row="0" Spacing="5">
+						<TextBlock Text="Количество комнат:"/>
+						<TextBox x:Name="RoomsTextBox"/>
+						<TextBlock x:Name="RoomsError" Classes="error"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="2" Grid.Row="1" Spacing="5">
+						<TextBlock Text="Площадь (м²):"/>
+						<TextBox x:Name="AreaTextBox"/>
+						<TextBlock x:Name="AreaError" Classes="error"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="2" Grid.Row="2" Spacing="5">
+						<TextBlock Text="Широта: (-90 : 90)"/>
+						<TextBox x:Name="LatitudeTextBox"/>
+						<TextBlock x:Name="LatitudeError" Classes="error"/>
+					</StackPanel>
+
+					<StackPanel Grid.Column="2" Grid.Row="3" Spacing="5">
+						<TextBlock Text="Долгота: (-180 : 180)"/>
+						<TextBox x:Name="LongitudeTextBox"/>
+						<TextBlock x:Name="LongitudeError" Classes="error"/>
+					</StackPanel>
+				</Grid>
+
+				<!-- Buttons -->
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Spacing="15" Margin="0,20">
+					<Button x:Name="SaveButton" Content="Сохранить" Classes="addButtonStyle"/>
+					<Button x:Name="CancelButton" Content="Отмена" Classes="deleteButtonStyle"/>
+				</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+	</Border>
+</UserControl>

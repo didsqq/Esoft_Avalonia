@@ -1,0 +1,145 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="ObjectivePlatformApp.EditAgent"
+             Width="450"
+             Height="500"
+             Foreground="#333333">
+
+	<UserControl.Resources>
+		<Color x:Key="BlueColor">#0091EA</Color>
+		<SolidColorBrush x:Key="BlueBrush" Color="{StaticResource BlueColor}" />
+		<Color x:Key="RedColor">#FF1744</Color>
+		<SolidColorBrush x:Key="RedBrush" Color="{StaticResource RedColor}" />
+		<SolidColorBrush x:Key="BorderGrayBrush" Color="#E0E0E0"/>
+		<SolidColorBrush x:Key="ErrorBrush" Color="#D32F2F"/>
+		<SolidColorBrush x:Key="RequiredFieldBrush" Color="#FF5252"/>
+	</UserControl.Resources>
+
+	<UserControl.Styles>
+		<!-- Common styles -->
+		<Style Selector="TextBlock.label">
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Margin" Value="0 0 0 5"/>
+			<Setter Property="Foreground" Value="#444"/>
+		</Style>
+
+		<Style Selector="TextBlock.requiredLabel">
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Margin" Value="0 0 0 5"/>
+			<Setter Property="Foreground" Value="{StaticResource RequiredFieldBrush}"/>
+		</Style>
+
+		<Style Selector="TextBlock.header">
+			<Setter Property="FontSize" Value="18"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="Margin" Value="0 0 15 15"/>
+			<Setter Property="Foreground" Value="#222"/>
+		</Style>
+
+		<Style Selector="TextBox">
+			<Setter Property="Padding" Value="12"/>
+			<Setter Property="CornerRadius" Value="6"/>
+			<Setter Property="BorderThickness" Value="1"/>
+			<Setter Property="BorderBrush" Value="{StaticResource BorderGrayBrush}"/>
+			<Setter Property="Background" Value="White"/>
+			<Setter Property="Foreground" Value="#333"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="Margin" Value="0 0 0 10"/>
+		</Style>
+
+		<Style Selector="TextBox:focus">
+			<Setter Property="BorderBrush" Value="{StaticResource BlueBrush}"/>
+		</Style>
+
+		<Style Selector="TextBlock.error">
+			<Setter Property="Foreground" Value="{StaticResource ErrorBrush}"/>
+			<Setter Property="FontSize" Value="12"/>
+			<Setter Property="Margin" Value="5 5 0 5"/>
+			<Setter Property="TextWrapping" Value="Wrap"/>
+		</Style>
+
+		<!-- Button styles -->
+		<Style Selector="Button">
+			<Setter Property="Padding" Value="12 8"/>
+			<Setter Property="CornerRadius" Value="6"/>
+			<Setter Property="FontWeight" Value="SemiBold"/>
+			<Setter Property="FontSize" Value="14"/>
+			<Setter Property="Height" Value="40"/>
+			<Setter Property="MinWidth" Value="120"/>
+		</Style>
+
+		<Style Selector="Button.addButtonStyle">
+			<Setter Property="Background" Value="{StaticResource BlueBrush}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+		</Style>
+		<Style Selector="Button.addButtonStyle:pointerover">
+			<Setter Property="Background" Value="#007ACC"/>
+		</Style>
+		<Style Selector="Button.addButtonStyle:pressed">
+			<Setter Property="Background" Value="#005C99"/>
+		</Style>
+
+		<Style Selector="Button.deleteButtonStyle">
+			<Setter Property="Background" Value="{StaticResource RedBrush}"/>
+			<Setter Property="Foreground" Value="White"/>
+			<Setter Property="BorderThickness" Value="0"/>
+		</Style>
+		<Style Selector="Button.deleteButtonStyle:pointerover">
+			<Setter Property="Background" Value="#D4143D"/>
+		</Style>
+		<Style Selector="Button.deleteButtonStyle:pressed">
+			<Setter Property="Background" Value="#AD0F32"/>
+		</Style>
+	</UserControl.Styles>
+
+	<Border Background="#F8F9FA" CornerRadius="8" Padding="25">
+		<ScrollViewer VerticalScrollBarVisibility="Auto">
+			<StackPanel Spacing="10" Width="400">
+				<!-- Header -->
+				<TextBlock Text="Редактирование агента"
+                           Classes="header"
+                           HorizontalAlignment="Center"/>
+
+				<!-- Form fields -->
+				<TextBlock Text="Фамилия*:" Classes="requiredLabel"/>
+				<TextBox x:Name="LastNameTextBox"
+                         Watermark="Введите фамилию"/>
+				<TextBlock x:Name="LastNameError" Classes="error"/>
+
+				<TextBlock Text="Имя*:" Classes="requiredLabel"/>
+				<TextBox x:Name="FirstNameTextBox"
+                         Watermark="Введите имя"/>
+				<TextBlock x:Name="FirstNameError" Classes="error"/>
+
+				<TextBlock Text="Отчество*:" Classes="requiredLabel"/>
+				<TextBox x:Name="MiddleNameTextBox"
+                         Watermark="Введите отчество"/>
+				<TextBlock x:Name="MiddleNameError" Classes="error"/>
+
+				<TextBlock Text="Комиссия (%)*:" Classes="requiredLabel"/>
+				<TextBox x:Name="CommissionTextBox"
+                         Watermark="Введите процент комиссии"/>
+				<TextBlock x:Name="CommissionError" Classes="error"/>
+
+				<!-- Buttons -->
+				<StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
+                            Spacing="15"
+                            Margin="0,20">
+					<Button x:Name="SaveButton"
+                            Content="Сохранить"
+                            Classes="addButtonStyle"
+                            IsEnabled="True"/>
+					<Button x:Name="CancelButton"
+                            Content="Отмена"
+                            Classes="deleteButtonStyle"/>
+				</StackPanel>
+			</StackPanel>
+		</ScrollViewer>
+	</Border>
+</UserControl>
